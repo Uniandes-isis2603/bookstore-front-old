@@ -11,40 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 
-import { BookListComponent } from './book/book-list/book-list.component';
-import { AuthorListComponent } from './author/author-list/author-list.component';
-import { EditorialListComponent } from './editorial/editorial-list/editorial-list.component';
 
-const routes: Routes = [
 
-  {
-      path: 'books',
-      children: [
-          {
-              path: 'list',
-              component: BookListComponent
-          }
-      ]
-  },
-  {
-      path: 'authors',
-      children: [
-          {
-              path: 'list',
-              component: AuthorListComponent
-          }
-      ]
-  },
-  {
-      path: 'editorials',
-      children: [
-          {
-              path: 'list',
-              component: EditorialListComponent
-          }
-      ]
-  }
-];
+
 
 @NgModule({
   declarations: [
@@ -56,8 +25,7 @@ const routes: Routes = [
     HttpClientModule,
     BookModule,
     EditorialModule,
-    AuthorModule,
-    RouterModule.forRoot(routes)
+    AuthorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
