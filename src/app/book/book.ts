@@ -36,4 +36,19 @@ export class Book {
    * The editorial of the book
    */
   editorial: Editorial;
+
+  constructor(
+    id: number,
+    name: string, isbn: string,
+    description: string,
+    image: string,
+    publishingdate: any,
+    editorial: Editorial) {
+      this.id = id;
+      this.name = name;
+      this.description = description;
+      this.image = image;
+      this.publishingdate = publishingdate;
+      this.editorial = editorial;
+    }
 }

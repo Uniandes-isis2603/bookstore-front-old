@@ -24,4 +24,18 @@ export class Author {
    * A brief description of the author's life
    */
   description: string;
+
+  constructor(
+    id: number,
+    name: string,
+    birthDate: any,
+    image: string,
+    description: string
+  ) {
+    this.id = id;
+    this.name = name;
+    this.birthDate = birthDate;
+    this.image = image;
+    this.description = description;
+  }
 }
