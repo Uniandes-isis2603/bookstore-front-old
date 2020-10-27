@@ -6,7 +6,13 @@
   </thead>
   <tbody>
     <tr *ngFor="let editorial of editorials">
-      <td>{{ editorial.name }}</td>
+      <td>
+        <a
+          routerLink="/editorials/{{ editorial.id }}"
+          [queryParams]="{ allBooks: 'false' }"
+          >{{ editorial.name }}</a
+        >
+      </td>
     </tr>
   </tbody>
 </table>

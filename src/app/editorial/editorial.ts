@@ -14,8 +14,8 @@ export class Editorial {
   name: string;
 
   constructor(
-    id: number,
-    name: string
+    id?: number,
+    name?: string
   ){
     this.id = id;
     this.name = name;

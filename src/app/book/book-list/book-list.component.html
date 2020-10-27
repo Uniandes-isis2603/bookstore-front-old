@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col" *ngFor="let book of books">
-      <figure class="figure">
+      <figure class="figure" routerLink="/books/{{ book.id }}">
         <img
           class="img-thumbnail img-fluid"
           src="{{ book.image }}"

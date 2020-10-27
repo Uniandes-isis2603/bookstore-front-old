@@ -7,7 +7,9 @@
   </thead>
   <tbody>
     <tr *ngFor="let author of authors">
-      <td>{{ author.name }}</td>
+      <td>
+        <a routerLink="/authors/{{ author.id }}">{{ author.name }}</a>
+      </td>
       <td>{{ getFechaCorta(author.birthDate) }}</td>
     </tr>
   </tbody>

@@ -8,7 +8,6 @@ import { AuthorModule } from './author/author.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RouterModule, Routes } from '@angular/router';
 
 @NgModule({
   declarations: [
