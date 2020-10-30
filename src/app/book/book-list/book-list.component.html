@@ -3,6 +3,7 @@
     <div class="col" *ngFor="let book of books">
       <figure class="figure" routerLink="/books/{{ book.id }}">
         <img
+          width="200"
           class="img-thumbnail img-fluid"
           src="{{ book.image }}"
           alt="{{ book.name }}"

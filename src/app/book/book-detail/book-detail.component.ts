@@ -19,7 +19,6 @@ export class BookDetailComponent implements OnInit {
     this.bookService.getBookDetail(this.bookId)
       .subscribe(bookDetail => {
         this.bookDetail = bookDetail;
-        console.log(bookDetail)
       });
   }
 
@@ -29,6 +28,7 @@ export class BookDetailComponent implements OnInit {
 
   ngOnInit() {
     this.bookDetail = new BookDetail();
+    this.bookDetail.reviews = []
     this.bookId = +this.route.snapshot.paramMap.get('id');
     this.getBookDetail();
   }

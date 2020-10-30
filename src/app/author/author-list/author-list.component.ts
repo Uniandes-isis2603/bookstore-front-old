@@ -10,6 +10,8 @@ import { AuthorService } from '../author.service';
 export class AuthorListComponent implements OnInit {
 
   authors: Author[];
+  selected: boolean = false;
+  selectedAuthor: Author;
 
   constructor(private authorService: AuthorService) { }
 
@@ -25,6 +27,11 @@ export class AuthorListComponent implements OnInit {
 
   ngOnInit() {
     this.getAuthors();
+  }
+
+  onSelected(a:Author){
+    this.selected = true;
+    this.selectedAuthor = a;
   }
 
 }
