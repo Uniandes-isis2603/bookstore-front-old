@@ -20,8 +20,12 @@ export class AuthorService {
     return this.http.get<Author[]>(API_URL + authors);
   }
 
-  getAuthorDetail(authorId): Observable<AuthorDetail> {
+  getAuthorDetail(authorId: number): Observable<AuthorDetail> {
     return this.http.get<AuthorDetail>(API_URL + authors + '/' + authorId);
+  }
+
+  createAuthor(author: Author): Observable<Author> {
+    return this.http.post<Author>(API_URL + authors, author);
   }
 
 }

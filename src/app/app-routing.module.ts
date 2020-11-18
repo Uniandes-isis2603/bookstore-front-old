@@ -7,6 +7,7 @@ import { EditorialListComponent } from './editorial/editorial-list/editorial-lis
 import { EditorialDetailComponent } from "./editorial/editorial-detail/editorial-detail.component";
 import { BookDetailComponent } from "./book/book-detail/book-detail.component" ;
 import { AuthorDetailComponent } from "./author/author-detail/author-detail.component" ;
+import { AuthorCreateComponent } from "./author/author-create/author-create.component" ;
 
 const routes: Routes = [
 
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
       path: 'authors',
       children: [
+        {
+          path: 'create',
+          component: AuthorCreateComponent
+        },
         {
             path: 'list',
             component: AuthorListComponent
