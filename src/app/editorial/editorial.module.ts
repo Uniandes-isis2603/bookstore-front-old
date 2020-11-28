@@ -6,16 +6,21 @@ import { EditorialDetailComponent } from "./editorial-detail/editorial-detail.co
 
 import { RouterModule } from '@angular/router';
 import { BookModule } from "../book/book.module"
+import { EditorialCreateComponent } from './editorial-create/editorial-create.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     BookModule
   ],
   declarations: [
     EditorialListComponent,
-    EditorialDetailComponent
+    EditorialDetailComponent,
+    EditorialCreateComponent
   ]
 })
 export class EditorialModule { }
