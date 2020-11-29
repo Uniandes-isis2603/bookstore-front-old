@@ -20,7 +20,15 @@ constructor(private http: HttpClient) { }
     return this.http.get<Book[]>(API_URL + books);
   }
 
-  getBookDetail(bookId): Observable<BookDetail> {
+  getBookDetail(bookId: number): Observable<BookDetail> {
     return this.http.get<BookDetail>(API_URL + books + '/' + bookId);
+  }
+
+  createBook(book: Book): Observable<BookDetail> {
+    return this.http.post<BookDetail>(API_URL + books, book);
+  }
+
+  createAuthorBook(idBook: number, idAuthor: number) {
+    return this.http.post(API_URL + books + '/' + idBook + '/authors/' + idAuthor, undefined);
   }
 }

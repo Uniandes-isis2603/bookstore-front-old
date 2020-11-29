@@ -2,19 +2,23 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { BookListComponent } from "./book-list/book-list.component";
 import { BookDetailComponent } from "./book-detail/book-detail.component";
 import { BookReviewsComponent} from "./book-reviews/book-reviews.component";
-
-import { RouterModule } from '@angular/router';
+import { BookCreateComponent} from "./book-create/book-create.component";
 
 @NgModule({
   imports: [
     NgbModule,
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule
   ],
-  declarations: [BookListComponent, BookDetailComponent, BookReviewsComponent],
-  exports: [BookListComponent, BookDetailComponent]
+  declarations: [BookListComponent, BookDetailComponent, BookReviewsComponent, BookCreateComponent],
+  exports: [BookListComponent, BookDetailComponent, BookCreateComponent]
 })
 export class BookModule { }

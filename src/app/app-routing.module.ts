@@ -2,13 +2,17 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { BookListComponent } from './book/book-list/book-list.component';
+import { BookDetailComponent } from "./book/book-detail/book-detail.component";
+import { BookCreateComponent } from "./book/book-create/book-create.component";
+
 import { AuthorListComponent } from './author/author-list/author-list.component';
+import { AuthorDetailComponent } from "./author/author-detail/author-detail.component";
+import { AuthorCreateComponent } from "./author/author-create/author-create.component";
+
 import { EditorialListComponent } from './editorial/editorial-list/editorial-list.component';
 import { EditorialDetailComponent } from "./editorial/editorial-detail/editorial-detail.component";
 import { EditorialCreateComponent } from "./editorial/editorial-create/editorial-create.component";
-import { BookDetailComponent } from "./book/book-detail/book-detail.component";
-import { AuthorDetailComponent } from "./author/author-detail/author-detail.component";
-import { AuthorCreateComponent } from "./author/author-create/author-create.component";
+
 
 const routes: Routes = [
 
@@ -18,6 +22,10 @@ const routes: Routes = [
       {
         path: 'list',
         component: BookListComponent
+      },
+      {
+        path: 'create',
+        component: BookCreateComponent
       },
       {
         path: ':id',
