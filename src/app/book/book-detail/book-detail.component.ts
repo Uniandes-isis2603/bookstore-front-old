@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { BookAddReviewComponent } from '../book-add-review/book-add-review.component';
 import { BookDetail } from '../book-detail';
+import { BookReviewsComponent } from '../book-reviews/book-reviews.component';
 import { BookService } from '../book.service';
 
 @Component({
@@ -14,6 +16,8 @@ export class BookDetailComponent implements OnInit {
 
   bookId: number;
   bookDetail: BookDetail;
+  @ViewChild(BookReviewsComponent) reviewListComponent: BookReviewsComponent;
+  @ViewChild(BookAddReviewComponent) reviewAddComponent: BookAddReviewComponent;
 
   getBookDetail(): void {
     this.bookService.getBookDetail(this.bookId)
@@ -36,6 +40,13 @@ export class BookDetailComponent implements OnInit {
   getFechaCorta(): void {
     let shortDate: string = this.bookDetail.publishingdate + '';
     this.bookDetail.publishingdate = shortDate.split('T')[0];
+  }
+
+  updateReviews(): void {
+    this.getBookDetail();
+    //this.reviewListComponent.updateReviews(this.bookDetail.reviews);
+    this.reviewListComponent.isCollapsed = false;
+    this.reviewAddComponent.isCollapsed = true;
   }
 
 }

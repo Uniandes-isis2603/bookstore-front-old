@@ -7,8 +7,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { BookListComponent } from "./book-list/book-list.component";
 import { BookDetailComponent } from "./book-detail/book-detail.component";
-import { BookReviewsComponent} from "./book-reviews/book-reviews.component";
-import { BookCreateComponent} from "./book-create/book-create.component";
+import { BookReviewsComponent } from "./book-reviews/book-reviews.component";
+import { BookCreateComponent } from "./book-create/book-create.component";
+import { BookAddReviewComponent } from "./book-add-review/book-add-review.component";
 
 @NgModule({
   imports: [
@@ -18,7 +19,7 @@ import { BookCreateComponent} from "./book-create/book-create.component";
     ReactiveFormsModule,
     RouterModule
   ],
-  declarations: [BookListComponent, BookDetailComponent, BookReviewsComponent, BookCreateComponent],
+  declarations: [BookListComponent, BookDetailComponent, BookReviewsComponent, BookCreateComponent, BookAddReviewComponent],
   exports: [BookListComponent, BookDetailComponent, BookCreateComponent]
 })
 export class BookModule { }
