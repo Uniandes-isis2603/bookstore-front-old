@@ -1,14 +1,127 @@
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a id="booksTag" class="nav-link" routerLink="/books/list">Books</a>
-  </li>
-  <li class="nav-item">
-    <a id="authorsTag" class="nav-link" routerLink="/authors/list">Authors</a>
-  </li>
-  <li class="nav-item">
-    <a id="editorialTag" class="nav-link" routerLink="/editorials/list"
-      >Editorials</a
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#">
+    <div class="form-inline">
+      <img
+        id="logo"
+        src="../assets/booksIcon.png"
+        class="center-block"
+        width="100"
+        height="100"
+      />
+      <div class="col">
+        <div class="row-sm-4">
+          <h2 class="mainTitle f1">B O O K L Y</h2>
+        </div>
+        <div class="row-sm-3">
+          <h5 class="mainTitle f1">A World of Books at Home</h5>
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          >Books</a
+        >
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a
+            class="dropdown-item"
+            [routerLink]="['/books/list']"
+            [queryParams]="{ allBooks: 'true' }"
+            >All books</a
+          >
+          <a class="dropdown-item" [routerLink]="['/books/create']"
+            >Create Book</a
+          >
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Authors
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/authors/list">List authors</a>
+          <a class="dropdown-item" routerLink="/authors/create"
+            >Create Author</a
+          >
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Editorials
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/editorials/list"
+            >All Editorials</a
+          >
+          <a class="dropdown-item" routerLink="/editorials/create"
+            >Create Editorial</a
+          >
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid" id="principal">
+  <div class="row">
+    <div class="col-md-10">
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <div class="col-md-2 border border-light" id="secundaria">
+      <div id="textWhite"></div>
+    </div>
+  </div>
+</div>
+
+<footer class="page-footer bg-light">
+  <div class="footer-copyright text-center py-2">
+    © Ejemplo Desarrollo de SW en Equipos
+    <a
+      [routerLink]="['/books/list']"
+      [queryParams]="{ allBooks: 'true' }"
+      id="colorFooterText2"
     >
-  </li>
-</ul>
-<router-outlet></router-outlet>
+      Bookly</a
+    >
+  </div>
+</footer>

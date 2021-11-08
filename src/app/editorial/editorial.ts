@@ -12,4 +12,12 @@ export class Editorial {
    * The editorial's name
    */
   name: string;
+
+  constructor(
+    id?: number,
+    name?: string
+  ){
+    this.id = id;
+    this.name = name;
+  }
 }

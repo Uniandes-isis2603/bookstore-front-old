@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { EditorialListComponent } from './editorial-list.component';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('EditorialListComponent', () => {
   let component: EditorialListComponent;
@@ -11,7 +12,8 @@ describe('EditorialListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditorialListComponent ]
+      declarations: [ EditorialListComponent ],
+      imports: [HttpClientTestingModule]
     })
     .compileComponents();
   }));

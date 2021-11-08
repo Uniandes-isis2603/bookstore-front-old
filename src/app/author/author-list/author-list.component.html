@@ -1,14 +1,21 @@
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Birth Date</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let author of authors">
-      <td>{{ author.name }}</td>
-      <td>{{ getFechaCorta(author.birthDate) }}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-4">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let author of authors">
+          <td>
+            <a (click)="onSelected(author)">{{ author.name }}</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-8" *ngIf="selected">
+    <app-author-detail [authorDetail]="selectedAuthor"></app-author-detail>
+  </div>
+</div>

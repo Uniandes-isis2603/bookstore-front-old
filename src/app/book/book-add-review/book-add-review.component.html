@@ -1,0 +1,89 @@
+<p>
+  <button
+    type="button"
+    class="btn btn-outline-primary"
+    (click)="isCollapsed = !isCollapsed"
+    [attr.aria-expanded]="!isCollapsed"
+    aria-controls="collapseExample"
+  >
+    Add a review
+  </button>
+</p>
+
+<div id="collapseReview" [ngbCollapse]="isCollapsed">
+  <h3>Create Review</h3>
+  <form [formGroup]="reviewForm" (ngSubmit)="createReview(reviewForm.value)">
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="name"> Review Name </label>
+      <input
+        id="name"
+        class="form-control"
+        formControlName="name"
+        placeholder="Review Name"
+      />
+    </div>
+    <div
+      class="alert alert-danger alert-dismissible fade show"
+      *ngIf="
+        reviewForm.get('name').hasError('required') &&
+        reviewForm.get('name').touched
+      "
+    >
+      Name required
+    </div>
+
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="source"> Review Source </label>
+      <input
+        id="source"
+        type="text"
+        class="form-control"
+        formControlName="source"
+        placeholder="Review Source"
+      />
+    </div>
+    <div
+      class="alert alert-danger alert-dismissible fade show"
+      *ngIf="
+        reviewForm.get('source').hasError('required') &&
+        reviewForm.get('source').touched
+      "
+    >
+      Source required
+    </div>
+
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="description"> Review Description </label>
+      <input
+        id="description"
+        type="text"
+        class="form-control"
+        formControlName="description"
+        placeholder="Review Description"
+      />
+    </div>
+    <div
+      class="alert alert-danger alert-dismissible fade show"
+      *ngIf="
+        reviewForm.get('description').hasError('required') &&
+        reviewForm.get('description').touched
+      "
+    >
+      Description required
+    </div>
+
+    <div class="row form-inline justify-content-center align-self-center">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="reviewForm.invalid"
+      >
+        Create
+      </button>
+      <div class="divider"></div>
+      <button type="button" class="btn btn-danger" (click)="cancelCreation()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

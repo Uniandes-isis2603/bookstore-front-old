@@ -1,0 +1,9 @@
+<div class="container-fluid">
+  <p class="h3 p-3">Editorial: {{ editorialDetail && editorialDetail.name }}</p>
+  <div class="row border margin">
+    <p class="h4 p-1">Available books:</p>
+    <app-book-list
+      [books]="editorialDetail && editorialDetail.books"
+    ></app-book-list>
+  </div>
+</div>
