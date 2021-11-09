@@ -3,6 +3,7 @@
   <div class="row border margin">
     <p class="h4 p-1">Available books:</p>
     <app-book-list
+      [all]="false"
       [books]="editorialDetail && editorialDetail.books"
     ></app-book-list>
   </div>

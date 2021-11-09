@@ -24,6 +24,7 @@ export class EditorialDetailComponent implements OnInit {
 
   ngOnInit() {
     this.editorialId = +this.route.snapshot.paramMap.get('id');
+    console.log("EdID", this.editorialId)
     if (this.editorialId) {
       this.editorialDetail = new EditorialDetail()
       this.getEditorialDetail();
