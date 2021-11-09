@@ -32,9 +32,9 @@ export class BookAddReviewComponent implements OnInit {
   }
 
   createReview(review: Review) {
-    const date = this.book.publishingdate;
+    const date = this.book.publishingDate;
     const formattedDate: Date = new Date(date);
-    this.book.publishingdate = formattedDate;
+    this.book.publishingDate = formattedDate;
     review.book = this.book;
     this.bookService.createReview(this.book.id, review)
       .subscribe(r => {

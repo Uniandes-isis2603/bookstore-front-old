@@ -1,28 +1,27 @@
-{{ getFechaCorta() }}
 <div class="panel-body">
   <div class="border margin p-3">
-    <p class="h3 p-2">{{ authorDetail.name }}</p>
+    <p class="h3 p-2">{{ authorDetail?.name }}</p>
     <p></p>
     <div class="row">
       <div class="col-md-3">
         <div class="thumb">
           <img
             class="img-fluid img-thumbnail border border-danger"
-            src="{{ authorDetail.image }}"
-            alt="{{ authorDetail.image }}"
+            src="{{ authorDetail?.image }}"
+            alt="{{ authorDetail?.image }}"
           />
         </div>
       </div>
       <div class="col-md-7">
         <dl>
           <dt>Bio</dt>
-          <dd>{{ authorDetail.description }}</dd>
+          <dd>{{ authorDetail?.description }}</dd>
           <dt>BirthDay</dt>
-          <dd>{{ authorDetail.birthDate }}</dd>
+          <dd>{{ getFechaCorta() }}</dd>
         </dl>
       </div>
     </div>
   </div>
   <p class="h3 p-3">Books by this author:</p>
-  <app-book-list [books]="authorDetail.books"></app-book-list>
+  <app-book-list [all]="false" [books]="authorDetail?.books"></app-book-list>
 </div>

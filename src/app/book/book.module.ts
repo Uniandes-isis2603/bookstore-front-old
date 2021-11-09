@@ -20,6 +20,6 @@ import { BookAddReviewComponent } from "./book-add-review/book-add-review.compon
     RouterModule
   ],
   declarations: [BookListComponent, BookDetailComponent, BookReviewsComponent, BookCreateComponent, BookAddReviewComponent],
-  exports: [BookListComponent, BookDetailComponent, BookCreateComponent]
+  exports: [BookListComponent, BookDetailComponent, BookReviewsComponent, BookCreateComponent, BookAddReviewComponent]
 })
 export class BookModule { }

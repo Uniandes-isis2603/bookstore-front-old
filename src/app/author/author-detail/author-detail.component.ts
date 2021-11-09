@@ -10,18 +10,28 @@ import { AuthorService } from '../author.service';
 })
 export class AuthorDetailComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute,
-    private authorService: AuthorService) { }
+  authorId: number;
+
+  constructor(
+    private route: ActivatedRoute,
+    private authorService: AuthorService
+  ) {}
 
   @Input() authorDetail: AuthorDetail;
 
-  getFechaCorta(): void {
-    let shortDate: string = this.authorDetail.birthDate + '';
-    this.authorDetail.birthDate = shortDate.split('T')[0];
+  getFechaCorta() {
+    let shortDate: string = this.authorDetail?.birthDate + '';
+    return shortDate.split('T')[0];
   }
 
   ngOnInit() {
-
+    console.log("Author detail")
+    this.authorId = +this.route.snapshot.paramMap.get('id');
+    if(this.authorId){
+      this.authorService.getAuthorDetail(this.authorId).subscribe(author=>{
+        this.authorDetail = author;
+      })
+    }
   }
 
 }

@@ -37,9 +37,9 @@ export class BookDetailComponent implements OnInit {
     this.getBookDetail();
   }
 
-  getFechaCorta(): void {
-    let shortDate: string = this.bookDetail.publishingdate + '';
-    this.bookDetail.publishingdate = shortDate.split('T')[0];
+  getFechaCorta() {
+    let shortDate: string = this.bookDetail.publishingDate + '';
+    return shortDate.split('T')[0];
   }
 
   updateReviews(): void {

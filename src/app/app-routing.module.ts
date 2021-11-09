@@ -15,7 +15,6 @@ import { EditorialCreateComponent } from "./editorial/editorial-create/editorial
 
 
 const routes: Routes = [
-
   {
     path: 'books',
     children: [
@@ -66,7 +65,11 @@ const routes: Routes = [
         component: EditorialDetailComponent
       }
     ]
-  }
+  },
+  {
+    path: '**',
+    component: BookListComponent
+  },
 ];
 
 @NgModule({

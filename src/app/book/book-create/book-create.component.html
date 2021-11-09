@@ -27,7 +27,8 @@
       rows="3"
       formControlName="authors"
     >
-      <option *ngFor="let e of authors">{{ e.name }}</option>
+      <option value="">Seleccione la el author</option>
+      <option [value]="a.id" *ngFor="let a of authors">{{ a.name }}</option>
     </select>
   </div>
   <div
@@ -121,13 +122,9 @@
 
   <div class="form-group mx-sm-3 mb-2">
     <label for="editorial"> Book Editorial </label>
-    <select
-      class="form-control"
-      id="editorial"
-      rows="3"
-      formControlName="editorial"
-    >
-      <option *ngFor="let e of editorials">{{ e.name }}</option>
+    <select class="form-control" id="editorial" formControlName="editorial">
+      <option value="">Seleccione la editorial</option>
+      <option [ngValue]="e" *ngFor="let e of editorials">{{ e.name }}</option>
     </select>
   </div>
   <div
@@ -141,9 +138,7 @@
   </div>
 
   <div class="row form-inline justify-content-center align-self-center">
-    <button type="submit" class="btn btn-primary" [disabled]="bookForm.invalid">
-      Create
-    </button>
+    <button type="submit" class="btn btn-primary">Create</button>
     <div class="divider"></div>
     <button type="button" class="btn btn-danger" (click)="cancelCreation()">
       Cancel

@@ -29,7 +29,7 @@ export class Book {
   /**
    * The book's publishing date
    */
-  publishingdate: any;
+  publishingDate: any;
 
 
   /**
@@ -43,14 +43,14 @@ export class Book {
     isbn?: string,
     description?: string,
     image?: string,
-    publishingdate?: any,
+    publishingDate?: any,
     editorial?: Editorial) {
       this.id = id;
       this.name = name;
       this.isbn = isbn;
       this.description = description;
       this.image = image;
-      this.publishingdate = publishingdate;
+      this.publishingDate = publishingDate;
       this.editorial = editorial;
     }
 }

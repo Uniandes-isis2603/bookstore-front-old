@@ -14,8 +14,7 @@ import { ConstantPool } from '@angular/compiler';
 export class BookListComponent implements OnInit {
 
   @Input() books: Book[];
-
-  allBooks:string;
+  @Input() all: boolean = true;
 
   constructor(private bookService: BookService, private route: ActivatedRoute) { }
 
@@ -27,14 +26,7 @@ export class BookListComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.route.queryParams.pipe(
-      filter(params => params.allBooks)
-    ).subscribe(params => {
-      this.allBooks = params.allBooks;
-    });
-
-    if(this.allBooks === "true"){
+    if(this.all){
       this.getBooks();
     }
   }

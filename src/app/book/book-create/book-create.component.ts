@@ -1,4 +1,5 @@
 import { DatePipe } from '@angular/common';
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -7,6 +8,7 @@ import { Author } from 'src/app/author/author';
 import { AuthorService } from 'src/app/author/author.service';
 import { Editorial } from 'src/app/editorial/editorial';
 import { EditorialService } from 'src/app/editorial/editorial.service';
+import { Book } from '../book';
 import { BookDetail } from '../book-detail';
 import { BookService } from '../book.service';
 
@@ -60,12 +62,14 @@ export class BookCreateComponent implements OnInit {
   }
 
   createBook(book: BookDetail) {
+
+    if(!this.bookForm.valid)
+      return;
+
     const date = this.bookForm.controls.publishingdate.value;
     const formattedDate: Date = new Date(date);
-    book.publishingdate = formattedDate;
-    book.editorial = this.buscarId(book.editorial, this.editorials);
-
-    const authorId = this.buscarId(book.authors, this.authors).id;
+    book.publishingDate = formattedDate;
+    const authorId = this.bookForm.get("authors").value;
 
     this.bookService.createBook(book)
       .subscribe(b => {
@@ -90,17 +94,18 @@ export class BookCreateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getEditorials();
+    this.getAuthors();
+
     this.bookForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
-      authors: ['', [Validators.required]],
+      authors: [''],
       publishingdate: ['', [Validators.required]],
       description: ['', [Validators.required]],
       isbn: ['', [Validators.required]],
       image: ['', [Validators.required]],
-      editorial: ['', [Validators.required]],
+      editorial: [''],
     })
-    this.getEditorials();
-    this.getAuthors();
   }
 
 }

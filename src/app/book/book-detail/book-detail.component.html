@@ -21,7 +21,7 @@
             <hr />
             <dt>Authors</dt>
             <div *ngFor="let author of bookDetail.authors">
-              <dd class="caption" routerLink="/author/{{ author.id }}">
+              <dd class="caption" routerLink="/authors/{{ author.id }}">
                 {{ author.name }}
               </dd>
             </div>
@@ -30,7 +30,7 @@
             <dd>{{ bookDetail.isbn }}</dd>
             <hr />
             <dt>Publishing Date</dt>
-            <dd>{{ getFechaCorta() }} {{ bookDetail.publishingdate }}</dd>
+            <dd>{{ getFechaCorta() }}</dd>
             <hr />
             <dt class="bold">Editorial</dt>
             <dd
