@@ -1,10 +1,9 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col" *ngFor="let book of books">
-      <figure class="figure" routerLink="/books/{{ book.id }}">
+      <figure routerLink="/books/{{ book.id }}">
         <img
-          width="200"
-          class="img-thumbnail img-fluid"
+          class="img-thumbnail img-fluid pointer"
           src="{{ book.image }}"
           alt="{{ book.name }}"
         />

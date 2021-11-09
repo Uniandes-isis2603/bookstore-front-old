@@ -1,7 +1,7 @@
 <h1>Create Book</h1>
 <form [formGroup]="bookForm" (ngSubmit)="createBook(bookForm.value)">
   <div class="form-group mx-sm-3 mb-2">
-    <label for="name"> Book Name </label>
+    <label for="name"> Name </label>
     <input
       novalidate
       id="name"
@@ -20,14 +20,14 @@
   </div>
 
   <div class="form-group mx-sm-3 mb-2">
-    <label for="authors"> Book Author </label>
+    <label for="authors"> Author </label>
     <select
       class="form-control"
       id="authors"
       rows="3"
       formControlName="authors"
     >
-      <option value="">Seleccione la el author</option>
+      <option value="">Select the author</option>
       <option [value]="a.id" *ngFor="let a of authors">{{ a.name }}</option>
     </select>
   </div>
@@ -42,7 +42,7 @@
   </div>
 
   <div class="form-group mx-sm-3 mb-2">
-    <label for="publishingdate"> Book Publish Date </label>
+    <label for="publishingdate"> Publishing Date </label>
     <input
       id="publishingdate"
       type="date"
@@ -62,7 +62,7 @@
   </div>
 
   <div class="form-group mx-sm-3 mb-2">
-    <label for="description"> Book Description </label>
+    <label for="description"> Description </label>
     <input
       id="description"
       type="text"
@@ -82,7 +82,7 @@
   </div>
 
   <div class="form-group mx-sm-3 mb-2">
-    <label for="isbn"> Book ISBN </label>
+    <label for="isbn"> ISBN </label>
     <input
       id="isbn"
       type="text"
@@ -101,7 +101,7 @@
   </div>
 
   <div class="form-group mx-sm-3 mb-2">
-    <label for="image"> Book Image </label>
+    <label for="image"> Image (URL) </label>
     <input
       id="image"
       type="url"
@@ -121,9 +121,9 @@
   </div>
 
   <div class="form-group mx-sm-3 mb-2">
-    <label for="editorial"> Book Editorial </label>
+    <label for="editorial"> Editorial </label>
     <select class="form-control" id="editorial" formControlName="editorial">
-      <option value="">Seleccione la editorial</option>
+      <option value="">Select the editorial</option>
       <option [ngValue]="e" *ngFor="let e of editorials">{{ e.name }}</option>
     </select>
   </div>
@@ -138,7 +138,13 @@
   </div>
 
   <div class="row form-inline justify-content-center align-self-center">
-    <button type="submit" class="btn btn-primary">Create</button>
+    <button
+      type="submit"
+      class="btn btn-primary mx-3"
+      [disabled]="bookForm.invalid"
+    >
+      Create
+    </button>
     <div class="divider"></div>
     <button type="button" class="btn btn-danger" (click)="cancelCreation()">
       Cancel
