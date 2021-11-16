@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Editorial } from '../editorial';
+import { EditorialDetail } from '../editorial-detail';
 import { EditorialService } from '../editorial.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { EditorialService } from '../editorial.service';
 })
 export class EditorialListComponent implements OnInit {
 
-  editorials: Editorial[];
+  editorials: EditorialDetail[];
 
   constructor(private editorialService: EditorialService) { }
 

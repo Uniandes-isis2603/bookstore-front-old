@@ -21,8 +21,8 @@ export class EditorialService {
    * Returns the Observable object containing the list of editorials retrieved from the API
    * @returns The list of books in real time
    */
-  getEditorials(): Observable<Editorial[]> {
-    return this.http.get<Editorial[]>(API_URL + editorials);
+  getEditorials(): Observable<EditorialDetail[]> {
+    return this.http.get<EditorialDetail[]>(API_URL + editorials);
   }
 
   /**

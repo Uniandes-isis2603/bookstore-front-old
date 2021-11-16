@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Author } from '../author';
+import { AuthorDetail } from '../author-detail';
 import { AuthorService } from '../author.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AuthorService } from '../author.service';
 })
 export class AuthorListComponent implements OnInit {
 
-  authors: Author[];
+  authors: AuthorDetail[];
   selected: boolean = false;
   selectedAuthor: Author;
 

@@ -18,8 +18,8 @@ export class BookService {
 
 constructor(private http: HttpClient) { }
 
-  getBooks(): Observable<Book[]> {
-    return this.http.get<Book[]>(API_URL + books);
+  getBooks(): Observable<BookDetail[]> {
+    return this.http.get<BookDetail[]>(API_URL + books);
   }
 
   getBookDetail(bookId: number): Observable<BookDetail> {

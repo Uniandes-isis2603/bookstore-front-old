@@ -5,6 +5,7 @@ import { BookService } from '../book.service';
 
 import { filter } from 'rxjs/operators';
 import { ConstantPool } from '@angular/compiler';
+import { BookDetail } from '../book-detail';
 
 @Component({
   selector: 'app-book-list',
@@ -13,7 +14,7 @@ import { ConstantPool } from '@angular/compiler';
 })
 export class BookListComponent implements OnInit {
 
-  @Input() books: Book[];
+  @Input() books: BookDetail[];
   @Input() all: boolean = true;
 
   constructor(private bookService: BookService, private route: ActivatedRoute) { }

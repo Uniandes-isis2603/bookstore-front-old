@@ -16,8 +16,8 @@ export class AuthorService {
 
   constructor(private http: HttpClient) { }
 
-  getAuthors(): Observable<Author[]> {
-    return this.http.get<Author[]>(API_URL + authors);
+  getAuthors(): Observable<AuthorDetail[]> {
+    return this.http.get<AuthorDetail[]>(API_URL + authors);
   }
 
   getAuthorDetail(authorId: number): Observable<AuthorDetail> {
