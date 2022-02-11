@@ -8,11 +8,13 @@ import { BookService } from '../book.service';
 @Component({
   selector: 'app-book-detail',
   templateUrl: './book-detail.component.html',
-  styleUrls: ['./book-detail.component.scss']
+  styleUrls: ['./book-detail.component.scss'],
 })
 export class BookDetailComponent implements OnInit {
-
-  constructor(private bookService: BookService, private route: ActivatedRoute,) { }
+  constructor(
+    private bookService: BookService,
+    private route: ActivatedRoute
+  ) {}
 
   bookId: number;
   bookDetail: BookDetail;
@@ -20,19 +22,19 @@ export class BookDetailComponent implements OnInit {
   @ViewChild(BookAddReviewComponent) reviewAddComponent: BookAddReviewComponent;
 
   getBookDetail(): void {
-    this.bookService.getBookDetail(this.bookId)
-      .subscribe(bookDetail => {
-        this.bookDetail = bookDetail;
-      });
+    // this.bookService.getBookDetail(this.bookId).subscribe((bookDetail) => {
+    //   this.bookDetail = bookDetail;
+    // });
+    this.bookDetail = this.bookService.getBookDetail(this.bookId);
   }
 
   getEdName(): string {
-    return this.bookDetail.editorial.name
+    return this.bookDetail.editorial.name;
   }
 
   ngOnInit() {
     this.bookDetail = new BookDetail();
-    this.bookDetail.reviews = []
+    this.bookDetail.reviews = [];
     this.bookId = +this.route.snapshot.paramMap.get('id');
     this.getBookDetail();
   }
@@ -48,5 +50,4 @@ export class BookDetailComponent implements OnInit {
     this.reviewListComponent.isCollapsed = false;
     this.reviewAddComponent.isCollapsed = true;
   }
-
 }

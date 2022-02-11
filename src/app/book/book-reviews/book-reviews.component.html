@@ -14,10 +14,13 @@
     <tbody>
       <tr *ngFor="let review of bookReviews">
         <td>
-          <span id="book-reviewed"
+          <!--<span id="book-reviewed"
             ><b>{{ review.book.name }}</b></span
-          ><span>: </span
-          ><span id="review-description">{{ review.description }}</span>
+          ><span>: </span>-->
+          <span id="review-name"
+            ><b>{{ review.name }} - {{ review.source }}</b></span
+          ><span>: </span>
+          <span id="review-description">{{ review.description }}</span>
         </td>
       </tr>
     </tbody>

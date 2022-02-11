@@ -1,21 +1,111 @@
-<div class="row">
-  <div class="col-4">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let author of authors">
-          <td>
-            <a (click)="onSelected(author)">{{ author.name }}</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="col-8" *ngIf="selected">
-    <app-author-detail [authorDetail]="selectedAuthor"></app-author-detail>
+<div class="container-fluid">
+  <div class="row" id="row-container">
+    <div class="col-sm-3" id="filters">
+      <div class="row" id="filters-title">
+        <h3>FILTER YOUR SEARCH</h3>
+      </div>
+      <hr />
+      <div class="filter-section">
+        <h4>Amount of awards received</h4>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault1"
+          />
+          <label class="form-check-label" for="flexCheckDefault1">
+            < 5 awards
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault2"
+          />
+          <label class="form-check-label" for="flexCheckDefault2">
+            < 10 awards
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault3"
+          />
+          <label class="form-check-label" for="flexCheckDefault3">
+            < 20 awards
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault4"
+          />
+          <label class="form-check-label" for="flexCheckDefault4">
+            < 20 awards or more
+          </label>
+        </div>
+      </div>
+      <hr />
+    </div>
+
+    <div class="col-sm-9">
+      <div id="order-top-filter">
+        <p>Order by:</p>
+        <div class="dropdown">
+          <button
+            class="dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            {{ orderValue }}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" (click)="setOrderValue('Names A-Z')"
+              >Names A-Z</a
+            >
+            <a class="dropdown-item" (click)="setOrderValue('Names Z-A')"
+              >Names Z-A</a
+            >
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="row book-list">
+        <div *ngFor="let author of authors" class="book-card">
+          <div class="card p-2" style="width: 18rem">
+            <a
+              class="card-block text-decoration-none"
+              href="/authors/{{ author.id }}"
+            >
+              <img
+                class="card-img-top"
+                src="{{ author.image }}"
+                alt="{{ author.name }}"
+              />
+              <div class="card-body">
+                <h5 class="card-title">{{ author.name }}</h5>
+                <p class="card-text">
+                  {{ author.birthDate }}
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div id="footer-books">
+        <p>Authors: {{ getAuthorsLength() }}</p>
+      </div>
+    </div>
   </div>
 </div>

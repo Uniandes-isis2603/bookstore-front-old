@@ -6,10 +6,9 @@ import { AuthorService } from '../author.service';
 @Component({
   selector: 'app-author-detail',
   templateUrl: './author-detail.component.html',
-  styleUrls: ['./author-detail.component.scss']
+  styleUrls: ['./author-detail.component.css'],
 })
 export class AuthorDetailComponent implements OnInit {
-
   authorId: number;
 
   constructor(
@@ -25,13 +24,13 @@ export class AuthorDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("Author detail")
+    console.log('Author detail');
     this.authorId = +this.route.snapshot.paramMap.get('id');
-    if(this.authorId){
-      this.authorService.getAuthorDetail(this.authorId).subscribe(author=>{
-        this.authorDetail = author;
-      })
+    if (this.authorId) {
+      // this.authorService.getAuthorDetail(this.authorId).subscribe(author=>{
+      //   this.authorDetail = author;
+      // })
+      this.authorDetail = this.authorService.getAuthorDetail(this.authorId);
     }
   }
-
 }

@@ -1,16 +1,150 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col" *ngFor="let book of books">
-      <figure routerLink="/books/{{ book.id }}">
-        <img
-          class="img-thumbnail img-fluid pointer"
-          src="{{ book.image }}"
-          alt="{{ book.name }}"
-        />
-        <figcaption class="figure-caption text-center">
-          {{ book.name }}
-        </figcaption>
-      </figure>
+  <div class="row" id="row-container">
+    <div class="col-sm-3" id="filters">
+      <div class="row" id="filters-title">
+        <h3>FILTER YOUR SEARCH</h3>
+      </div>
+      <hr />
+      <div class="filter-section">
+        <h4>Publication date</h4>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault1"
+          />
+          <label class="form-check-label" for="flexCheckDefault1">
+            -6 months
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault2"
+          />
+          <label class="form-check-label" for="flexCheckDefault2">
+            -1 year
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault3"
+          />
+          <label class="form-check-label" for="flexCheckDefault3">
+            -5 years
+          </label>
+        </div>
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="flexCheckDefault4"
+          />
+          <label class="form-check-label" for="flexCheckDefault4">
+            -10 years or more
+          </label>
+        </div>
+      </div>
+      <hr />
+      <div class="filter-section">
+        <h4>Book name</h4>
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Type the name..."
+            aria-label="Type the name..."
+            aria-describedby="basic-addon2"
+          />
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="filter-section">
+        <h4>Author name</h4>
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Type the name..."
+            aria-label="Type the name..."
+            aria-describedby="basic-addon2"
+          />
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button">
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+      <hr />
+    </div>
+
+    <div class="col-sm-9">
+      <div id="order-top-filter">
+        <p>Order by:</p>
+        <div class="dropdown">
+          <button
+            class="dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            {{ orderValue }}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" (click)="setOrderValue('Names A-Z')"
+              >Names A-Z</a
+            >
+            <a class="dropdown-item" (click)="setOrderValue('Names Z-A')"
+              >Names Z-A</a
+            >
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="row book-list">
+        <div *ngFor="let book of books" class="book-card">
+          <div class="card p-2" style="width: 18rem">
+            <a
+              class="card-block text-decoration-none"
+              href="/books/{{ book.id }}"
+            >
+              <img
+                class="card-img-top"
+                src="{{ book.image }}"
+                alt="{{ book.name }}"
+              />
+              <div class="card-body">
+                <h5 class="card-title">{{ book.name }}</h5>
+                <div *ngFor="let author of book.authors">
+                  <p class="card-text">Author: {{ author.name }}</p>
+                </div>
+                <p class="card-text">
+                  {{ book.publishingDate }}
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div id="footer-books">
+        <p>Books: {{ getBooksLength() }}</p>
+      </div>
     </div>
   </div>
 </div>

@@ -5,23 +5,22 @@ import { EditorialService } from '../editorial.service';
 @Component({
   selector: 'app-editorial-list',
   templateUrl: './editorial-list.component.html',
-  styleUrls: ['./editorial-list.component.scss']
+  styleUrls: ['./editorial-list.component.css'],
 })
 export class EditorialListComponent implements OnInit {
-
   editorials: EditorialDetail[];
 
-  constructor(private editorialService: EditorialService) { }
+  constructor(private editorialService: EditorialService) {}
 
   getEditorials(): void {
-    this.editorialService.getEditorials()
-      .subscribe(editorials => {
-        this.editorials = editorials;
-      });
+    // this.editorialService.getEditorials()
+    //   .subscribe(editorials => {
+    //     this.editorials = editorials;
+    //   });
+    this.editorials = this.editorialService.getEditorials();
   }
 
   ngOnInit() {
     this.getEditorials();
   }
-
 }

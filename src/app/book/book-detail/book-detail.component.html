@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <div>
     <div class="border margin">
-      <p class="h3 p-3">{{ bookDetail.name }}</p>
+      <p class="h2 p-3">{{ bookDetail.name }}</p>
       <div class="row">
         <div class="col-md-2">
           <div class="row">
@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      <div class="px-5 py-2" *ngIf="bookDetail.reviews.length > 0">
+      <div class="px-5 py-2" *ngIf="bookDetail.reviews.length >= 0">
         <app-book-reviews [bookReviews]="bookDetail.reviews"></app-book-reviews>
         <app-book-add-review
           [book]="bookDetail"

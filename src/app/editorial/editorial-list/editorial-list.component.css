@@ -1,0 +1,17 @@
+table {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+th {
+  font-size: xx-large;
+  color: #121a2f;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  color: #121a2f;
+  font-size: large;
+}

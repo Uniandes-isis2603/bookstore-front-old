@@ -10,24 +10,34 @@ import { BookDetail } from '../book-detail';
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
-  styleUrls: ['./book-list.component.scss']
+  styleUrls: ['./book-list.component.css'],
 })
 export class BookListComponent implements OnInit {
-
   @Input() books: BookDetail[];
   @Input() all: boolean = true;
 
-  constructor(private bookService: BookService, private route: ActivatedRoute) { }
+  orderValue: String = 'Names A-Z';
+
+  constructor(
+    private bookService: BookService,
+    private route: ActivatedRoute
+  ) {}
 
   getBooks(): void {
-    this.bookService.getBooks()
-      .subscribe(books => {
-        this.books = books;
-      });
+    this.books = this.bookService.getBooks();
+    //this.books = BOOKS;
+  }
+
+  getBooksLength(): Number {
+    return this.books.length;
+  }
+
+  setOrderValue(value: String): void {
+    this.orderValue = value;
   }
 
   ngOnInit() {
-    if(this.all){
+    if (this.all) {
       this.getBooks();
     }
   }

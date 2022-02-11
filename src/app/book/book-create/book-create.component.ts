@@ -16,10 +16,9 @@ import { BookService } from '../book.service';
   selector: 'app-book-create',
   templateUrl: './book-create.component.html',
   styleUrls: ['./book-create.component.css'],
-  providers: [DatePipe]
+  providers: [DatePipe],
 })
 export class BookCreateComponent implements OnInit {
-
   authors: Author[];
   bookAuthors: Author[];
   bookForm: FormGroup;
@@ -33,24 +32,26 @@ export class BookCreateComponent implements OnInit {
     private router: Router,
     private formBuilder: FormBuilder,
     private authorService: AuthorService
-  ) { }
+  ) {}
 
   getEditorials(): void {
-    this.editorialService.getEditorials()
-      .subscribe(editorials => {
-        this.editorials = editorials;
-      }, err => {
-        this.toastrService.error(err, 'Error');
-      });
+    // this.editorialService.getEditorials().subscribe(
+    //   (editorials) => {
+    //     this.editorials = editorials;
+    //   },
+    //   (err) => {
+    //     this.toastrService.error(err, 'Error');
+    //   }
+    // );
   }
 
   getAuthors(): void {
-    this.authorService.getAuthors()
-      .subscribe(auth => {
-        this.authors = auth;
-      }, err => {
-        this.toastrService.error(err, 'Error');
-      });
+    // this.authorService.getAuthors()
+    //   .subscribe(auth => {
+    //     this.authors = auth;
+    //   }, err => {
+    //     this.toastrService.error(err, 'Error');
+    //   });
   }
 
   buscarId(value, list) {
@@ -62,33 +63,38 @@ export class BookCreateComponent implements OnInit {
   }
 
   createBook(book: BookDetail) {
-
-    if(!this.bookForm.valid)
-      return;
+    if (!this.bookForm.valid) return;
 
     const date = this.bookForm.controls.publishingdate.value;
     const formattedDate: Date = new Date(date);
     book.publishingDate = formattedDate;
-    const authorId = this.bookForm.get("authors").value;
+    const authorId = this.bookForm.get('authors').value;
 
-    this.bookService.createBook(book)
-      .subscribe(b => {
+    this.bookService.createBook(book).subscribe(
+      (b) => {
         this.toastrService.success('The book was created successfully');
-        this.bookService.createAuthorBook(b.id, authorId).subscribe(b2 => {
-          this.toastrService.success('The author was associated successfully');
-          this.router.navigate(['/books/' + b.id]);
-        }, err => {
-          this.toastrService.error(err, 'Error')
-        });
+        this.bookService.createAuthorBook(b.id, authorId).subscribe(
+          (b2) => {
+            this.toastrService.success(
+              'The author was associated successfully'
+            );
+            this.router.navigate(['/books/' + b.id]);
+          },
+          (err) => {
+            this.toastrService.error(err, 'Error');
+          }
+        );
 
         this.bookForm.reset();
-      }, err => {
+      },
+      (err) => {
         this.toastrService.error(err, 'Error');
-      });
+      }
+    );
   }
 
   cancelCreation(): void {
-    this.toastrService.warning('The book wasn\'t created', 'Book creation');
+    this.toastrService.warning("The book wasn't created", 'Book creation');
     this.router.navigate(['/books/list']);
     this.bookForm.reset();
   }
@@ -105,7 +111,6 @@ export class BookCreateComponent implements OnInit {
       isbn: ['', [Validators.required]],
       image: ['', [Validators.required]],
       editorial: ['', [Validators.required]],
-    })
+    });
   }
-
 }

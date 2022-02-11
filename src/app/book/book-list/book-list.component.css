@@ -1,0 +1,75 @@
+.card-title {
+  color: #121a2f;
+}
+
+.card-text {
+  color: #a0a2a4;
+}
+
+.book-card {
+  margin-right: 8%;
+  margin-bottom: 3%;
+}
+
+#filters {
+  background-color: #f4f6f8;
+}
+
+#filters-title {
+  color: #121a2f;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3%;
+}
+
+.book-list {
+  justify-content: center;
+}
+
+.dropdown-toggle {
+  background-color: transparent;
+  color: #121a2f;
+  border: none;
+  text-decoration: none;
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+#order-top-filter {
+  margin-top: 1%;
+  color: #121a2f;
+  display: flex;
+  margin-left: 3%;
+  font-weight: 500;
+  font-size: larger;
+}
+
+.dropdown {
+  margin-left: 2%;
+}
+
+hr {
+  margin-bottom: 2%;
+  margin-top: -0.5%;
+}
+
+.filter-section {
+  margin-left: 5%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.form-check {
+  font-size: larger;
+  font-weight: 400;
+  margin-top: 3%;
+}
+
+#footer-books {
+  justify-content: center;
+  text-align: center;
+  color: #a0a2a4;
+  margin-top: -1%;
+}

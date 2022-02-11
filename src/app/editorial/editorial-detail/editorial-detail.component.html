@@ -1,10 +1,11 @@
-<div class="container-fluid">
+<div class="container-fluid border margin">
   <p class="h3 p-3">Editorial: {{ editorialDetail && editorialDetail.name }}</p>
-  <div class="row border margin">
+  <hr />
+  <div class="row">
     <p class="h4 p-1">Available books:</p>
-    <app-book-list
-      [all]="false"
-      [books]="editorialDetail && editorialDetail.books"
-    ></app-book-list>
   </div>
+  <app-book-list
+    [all]="false"
+    [books]="editorialDetail && editorialDetail.books"
+  ></app-book-list>
 </div>
